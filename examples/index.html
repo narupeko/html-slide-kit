@@ -13,7 +13,7 @@
 <body>
 <deck-stage width="1280" height="720">
 
-  <!-- 1. 表紙：見出しを順に出す -->
+  <!-- 表紙：見出しを順に出す -->
   <section class="cover">
     <div data-cascade="300">
       <p class="kicker">HTML SLIDE KIT</p>
@@ -24,19 +24,19 @@
     <p class="by" data-step="1">しらとり なるひこ（narupeko）</p>
   </section>
 
-  <!-- 2. 箇条書きを 1 項目ずつ -->
+  <!-- 箇条書きを 1 項目ずつ -->
   <section>
     <div class="head"><span class="chip">FEATURES</span><h1>このキットでできること</h1></div>
     <ul class="bul" data-each="1">
       <li>1280×720 で作り、画面に合わせて拡大縮小。印刷すれば 1 枚 1 ページの PDF</li>
       <li>クリックや → で<strong>1 段ずつ</strong>出す。全部出たら次のスライドへ</li>
-      <li>文字を順に出す、手書き風の下線と丸、数字の数え上げ</li>
-      <li>レーザーポインター（L）、全画面（F）、左下の操作ヒント（H）</li>
+      <li>クイズ、話し合いタイマー、投票の QR で、聞き手が<strong>参加できる</strong></li>
+      <li>文字を順に出す、下線と数え上げ、レーザー（L）、全画面（F）</li>
     </ul>
     <div class="foot"><span>HTML スライドキット</span><span>02</span></div>
   </section>
 
-  <!-- 3. セクション区切り（見出し形式） -->
+  <!-- セクション区切り（見出し形式） -->
   <section class="section">
     <div data-cascade="350">
       <p class="no">SECTION 01</p>
@@ -45,7 +45,7 @@
     <p class="lead" data-step="1">先に全部見せると、聞き手は話より先に読み進めてしまう。いま話している所だけを出せば、目と耳がそろう。</p>
   </section>
 
-  <!-- 4. 番号つき 3 項目 -->
+  <!-- 番号つき 3 項目 -->
   <section>
     <div class="head"><span class="chip">RULES</span><h1>段階送りの 3 つの決まり</h1></div>
     <div class="cards" data-each="1">
@@ -56,7 +56,7 @@
     <div class="foot"><span>HTML スライドキット</span><span>04</span></div>
   </section>
 
-  <!-- 5. 巨大数字＋結論 -->
+  <!-- 巨大数字＋結論 -->
   <section>
     <div class="head"><span class="chip">SIZE</span><h1>本文の文字は大きく</h1></div>
     <div class="two">
@@ -69,7 +69,7 @@
     <div class="foot"><span>HTML スライドキット</span><span>05</span></div>
   </section>
 
-  <!-- 6. 書き方 -->
+  <!-- 書き方 -->
   <section>
     <div class="head"><span class="chip">HOW TO</span><h1>書き方は属性を足すだけ</h1></div>
     <div class="two">
@@ -94,7 +94,69 @@
     <div class="foot"><span>HTML スライドキット</span><span>06</span></div>
   </section>
 
-  <!-- 7. 公開のしかた -->
+  <!-- 参加：セクション区切り -->
+  <section class="section">
+    <div data-cascade="350">
+      <p class="no">SECTION 02</p>
+      <h1>聞くだけに、<br>しない</h1>
+    </div>
+    <p class="lead" data-step="1">予想する、隣と話す、スマホで答える。手と口を動かした話は、あとまで残る。</p>
+  </section>
+
+  <!-- 参加：その場クイズ（サーバー不要） -->
+  <section>
+    <div class="head"><span class="chip">QUIZ</span><h1>まず予想してから</h1></div>
+    <div class="quiz" data-answer="2" data-reveal="1">
+      <p class="quiz-q">このキットで、1 枚のスライドに入れる段はいくつまで？</p>
+      <ol class="quiz-choices">
+        <li>2 段まで</li>
+        <li>4 段まで</li>
+        <li>8 段まで</li>
+      </ol>
+      <p class="quiz-why">多すぎると、聞き手も話し手も迷子になる。答えを先に言わず、指で答えてもらってからクリックする。</p>
+    </div>
+    <div class="foot"><span>HTML スライドキット</span><span>08</span></div>
+  </section>
+
+  <!-- 参加：話し合いタイマー（サーバー不要） -->
+  <section>
+    <div class="head"><span class="chip">TALK</span><h1>隣の人と 1 分</h1></div>
+    <div class="two" style="align-items:center">
+      <div>
+        <p style="font-size:var(--fs-h2); color:var(--navy); font-weight:700; line-height:1.5">最近の発表で、聞き手の反応が<br>いちばんよかったのはどんな場面？</p>
+        <p class="note" style="margin-top:18px">タイマーはクリックで開始・一時停止。<code>data-autostart</code> で自動開始</p>
+      </div>
+      <div style="text-align:center"><button class="timer" data-seconds="60">隣の人と話す</button></div>
+    </div>
+    <div class="foot"><span>HTML スライドキット</span><span>09</span></div>
+  </section>
+
+  <!-- 参加：投票ページの QR -->
+  <section>
+    <div class="head"><span class="chip">VOTE</span><h1>スマホで答えてもらう</h1></div>
+    <div class="two" style="align-items:center">
+      <div class="join" data-url="https://narupeko.github.io/html-slide-kit/">このスライドを手元で開く</div>
+      <ul class="bul" style="font-size:var(--fs-small)">
+        <li><code>data-url</code> に投票ページの URL を入れると、QR コードと URL が出る</li>
+        <li>結果ページは <code>&lt;iframe class="live-frame"&gt;</code> で埋め込める</li>
+        <li>投票の仕組みは、自前の Worker・Slido・Mentimeter・Google フォームなど何でもよい</li>
+      </ul>
+    </div>
+    <div class="foot"><span>HTML スライドキット</span><span>10</span></div>
+  </section>
+
+  <!-- 参加：設計の決まり -->
+  <section>
+    <div class="head"><span class="chip">DESIGN</span><h1>参加の場面を、先に決める</h1></div>
+    <div class="cards" data-each="1">
+      <div class="card"><div class="n">01</div><h2>最初の 5 分で 1 問</h2><p>自己紹介より先に聞いてもよい。答えてよい場だと伝わる</p></div>
+      <div class="card"><div class="n">02</div><h2>15 分に 1 回</h2><p>クイズ、話し合い、投票、振り返りを入れ替えて使う</p></div>
+      <div class="card"><div class="n">03</div><h2>予想、結果、なぜ</h2><p>答えを見せたら「なぜそう思った？」を 1〜2 人に聞く</p></div>
+    </div>
+    <div class="foot"><span>HTML スライドキット</span><span>11</span></div>
+  </section>
+
+  <!-- 公開のしかた -->
   <section>
     <div class="head"><span class="chip">PUBLISH</span><h1>作ったスライドを公開する</h1></div>
     <ul class="bul" data-each="1">
@@ -102,10 +164,10 @@
       <li><strong>Cloudflare Workers</strong>：静的ファイルとして <code>npx wrangler deploy</code>。手順は README</li>
       <li>公開する前に、個人情報と組織の実データを外す。参加者の自由記述は要約にする</li>
     </ul>
-    <div class="foot"><span>HTML スライドキット</span><span>07</span></div>
+    <div class="foot"><span>HTML スライドキット</span><span>12</span></div>
   </section>
 
-  <!-- 8. クレジット -->
+  <!-- クレジット -->
   <section>
     <div class="head"><span class="chip">CREDITS</span><h1>ライセンスと参考</h1></div>
     <ul class="bul" style="font-size:var(--fs-small)">
@@ -113,11 +175,12 @@
       <li>段階送り・レーザー・操作ヒントは、shintajiri 氏の HTML スライド（ai-fd-ishikawa-2026.shintajiri.workers.dev）の操作感を参考に、コードは写さず書き直した</li>
       <li>フォント：BIZ UDPゴシック（© The BIZ UDGothic Project Authors、SIL Open Font License 1.1）を Google Fonts から読み込む</li>
     </ul>
-    <div class="foot"><span>HTML スライドキット</span><span>08</span></div>
+    <div class="foot"><span>HTML スライドキット</span><span>13</span></div>
   </section>
 
 </deck-stage>
 <script src="../kit/deck-shell.js"></script>
+<script src="../kit/deck-participate.js"></script>
 <script src="../kit/deck-extras.js"></script>
 </body>
 </html>

@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HTML スライドキット</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
+<link rel="stylesheet" href="../kit/slide.css">
+<style>deck-stage:not(:defined){ visibility:hidden; }</style>
+</head>
+<body>
+<deck-stage width="1280" height="720">
+
+  <!-- 1. 表紙：見出しを順に出す -->
+  <section class="cover">
+    <div data-cascade="300">
+      <p class="kicker">HTML SLIDE KIT</p>
+      <h1>話す順に見せる、<br>日本語の投影スライド</h1>
+      <div class="rule"></div>
+      <p class="sub">HTML 1 枚で作って、そのまま発表・PDF・公開</p>
+    </div>
+    <p class="by" data-step="1">しらとり なるひこ（narupeko）</p>
+  </section>
+
+  <!-- 2. 箇条書きを 1 項目ずつ -->
+  <section>
+    <div class="head"><span class="chip">FEATURES</span><h1>このキットでできること</h1></div>
+    <ul class="bul" data-each="1">
+      <li>1280×720 で作り、画面に合わせて拡大縮小。印刷すれば 1 枚 1 ページの PDF</li>
+      <li>クリックや → で<strong>1 段ずつ</strong>出す。全部出たら次のスライドへ</li>
+      <li>文字を順に出す、手書き風の下線と丸、数字の数え上げ</li>
+      <li>レーザーポインター（L）、全画面（F）、左下の操作ヒント（H）</li>
+    </ul>
+    <div class="foot"><span>HTML スライドキット</span><span>02</span></div>
+  </section>
+
+  <!-- 3. セクション区切り（見出し形式） -->
+  <section class="section">
+    <div data-cascade="350">
+      <p class="no">SECTION 01</p>
+      <h1>見出しは、<br>話す順に出す</h1>
+    </div>
+    <p class="lead" data-step="1">先に全部見せると、聞き手は話より先に読み進めてしまう。いま話している所だけを出せば、目と耳がそろう。</p>
+  </section>
+
+  <!-- 4. 番号つき 3 項目 -->
+  <section>
+    <div class="head"><span class="chip">RULES</span><h1>段階送りの 3 つの決まり</h1></div>
+    <div class="cards" data-each="1">
+      <div class="card"><div class="n">01</div><h2>1 枚 4 段まで</h2><p>クリックが多すぎると、聞き手も話し手も迷子になる</p></div>
+      <div class="card"><div class="n">02</div><h2>結論は最後の段</h2><p>理由を積み上げてから、言いたいことを出す</p></div>
+      <div class="card"><div class="n">03</div><h2>表とグラフは一度に</h2><p>細部を 1 つずつ出すと、全体が読めない</p></div>
+    </div>
+    <div class="foot"><span>HTML スライドキット</span><span>04</span></div>
+  </section>
+
+  <!-- 5. 巨大数字＋結論 -->
+  <section>
+    <div class="head"><span class="chip">SIZE</span><h1>本文の文字は大きく</h1></div>
+    <div class="two">
+      <div data-step="0">
+        <div class="stat"><span data-count="22">22</span><small>px 以上</small></div>
+        <p style="margin-top:16px; color:var(--ink-2)">1280×720 のスライドでの本文の最小。出典・注でも 15px</p>
+      </div>
+      <div class="callout" data-step="1">会場の<span class="uline" data-step="2">いちばん後ろの席</span>から読めるかで決める</div>
+    </div>
+    <div class="foot"><span>HTML スライドキット</span><span>05</span></div>
+  </section>
+
+  <!-- 6. 書き方 -->
+  <section>
+    <div class="head"><span class="chip">HOW TO</span><h1>書き方は属性を足すだけ</h1></div>
+    <div class="two">
+<div class="code"><span class="c">&lt;!-- 1 回目のクリックで出る --&gt;</span>
+&lt;p data-step="1"&gt;…&lt;/p&gt;
+
+<span class="c">&lt;!-- 子を 350ms ずつ順に出す --&gt;</span>
+&lt;div data-cascade="350"&gt;…&lt;/div&gt;
+
+<span class="c">&lt;!-- 子をクリックごとに 1 つずつ --&gt;</span>
+&lt;ul data-each="1"&gt;…&lt;/ul&gt;
+
+<span class="c">&lt;!-- 下線を引く・数え上げる --&gt;</span>
+&lt;span class="uline" data-step="2"&gt;…&lt;/span&gt;
+&lt;b data-count="3212"&gt;3,212&lt;/b&gt;</div>
+      <ul class="bul" data-each="1">
+        <li><code>data-step="0"</code> はスライドに入ったとき自動で出る</li>
+        <li>戻って入ったスライドは、全部出た状態で見せる</li>
+        <li>印刷・PDF では最初から全部出る</li>
+      </ul>
+    </div>
+    <div class="foot"><span>HTML スライドキット</span><span>06</span></div>
+  </section>
+
+  <!-- 7. 公開のしかた -->
+  <section>
+    <div class="head"><span class="chip">PUBLISH</span><h1>作ったスライドを公開する</h1></div>
+    <ul class="bul" data-each="1">
+      <li><strong>GitHub Pages</strong>：リポジトリに置いて Pages を有効にするだけ</li>
+      <li><strong>Cloudflare Workers</strong>：静的ファイルとして <code>npx wrangler deploy</code>。手順は README</li>
+      <li>公開する前に、個人情報と組織の実データを外す。参加者の自由記述は要約にする</li>
+    </ul>
+    <div class="foot"><span>HTML スライドキット</span><span>07</span></div>
+  </section>
+
+  <!-- 8. クレジット -->
+  <section>
+    <div class="head"><span class="chip">CREDITS</span><h1>ライセンスと参考</h1></div>
+    <ul class="bul" style="font-size:var(--fs-small)">
+      <li>コード（kit/）は MIT License、文書と見本（README・SKILL.md・examples/）は CC BY 4.0。© 2026 しらとり なるひこ</li>
+      <li>段階送り・レーザー・操作ヒントは、shintajiri 氏の HTML スライド（ai-fd-ishikawa-2026.shintajiri.workers.dev）の操作感を参考に、コードは写さず書き直した</li>
+      <li>フォント：BIZ UDPゴシック（© The BIZ UDGothic Project Authors、SIL Open Font License 1.1）を Google Fonts から読み込む</li>
+    </ul>
+    <div class="foot"><span>HTML スライドキット</span><span>08</span></div>
+  </section>
+
+</deck-stage>
+<script src="../kit/deck-shell.js"></script>
+<script src="../kit/deck-extras.js"></script>
+</body>
+</html>

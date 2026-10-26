@@ -1,0 +1,99 @@
+/*
+ * slide.css — 日本語の投影スライド向けの見た目（1280×720）
+ * (c) 2026 しらとり なるひこ (Naruhiko Shiratori) — MIT License
+ *
+ * 色はここの変数を差し替えれば全体が変わる。フォントは BIZ UDPゴシック（Google Fonts）を想定。
+ */
+:root{
+  --accent:      #0B72B9;   /* 強調・区切り線・チップ */
+  --accent-dark: #075A93;   /* 強調文字 */
+  --accent-pale: #E7F2FA;   /* 薄い背景 */
+  --navy:        #13294B;   /* 見出し */
+  --ink:         #1B1F24;   /* 本文 */
+  --ink-2:       #48515C;   /* 補足 */
+  --ink-3:       #7A8491;   /* 出典・注 */
+  --paper:       #FFFFFF;
+  --paper-2:     #F4F6F9;
+  --rule:        #D5DBE2;
+  --hw-color:    var(--accent);   /* deck-extras.js の手書き線 */
+
+  --ff: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", system-ui, sans-serif;
+  --ff-mono: ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* 文字の大きさ（1280×720 で投影したとき後ろの席から読める大きさ） */
+  --fs-display: 60px;  /* 表紙 */
+  --fs-title:   38px;  /* 各スライドのタイトル */
+  --fs-h1:      32px;  /* 結論メッセージ */
+  --fs-h2:      26px;  /* 見出し */
+  --fs-body:    22px;  /* 本文（これより小さくしない） */
+  --fs-small:   18px;
+  --fs-note:    15px;  /* 出典・注（最小） */
+  --radius:     8px;
+}
+
+deck-stage > section{
+  font-family:var(--ff); color:var(--ink); background:var(--paper);
+  font-size:var(--fs-body); line-height:1.6; padding:56px 80px 64px;
+  font-feature-settings:"palt" 1; font-variant-numeric:tabular-nums;
+}
+deck-stage > section *{ box-sizing:border-box; }
+deck-stage h1, deck-stage h2, deck-stage p, deck-stage ul, deck-stage ol{ margin:0; }
+deck-stage strong{ color:var(--accent-dark); }
+
+/* 標準ヘッダー：チップ＋タイトル＋区切り線 */
+.head{ display:flex; align-items:baseline; gap:18px; padding-bottom:14px; border-bottom:3px solid var(--accent); margin-bottom:36px; }
+.head .chip{ font-size:var(--fs-note); letter-spacing:.08em; color:var(--accent-dark); background:var(--accent-pale);
+  padding:3px 12px; border-radius:999px; transform:translateY(-6px); }
+.head h1{ font-size:var(--fs-title); color:var(--navy); font-weight:700; letter-spacing:.01em; }
+
+/* 標準フッター：左に名前、右にページ番号 */
+.foot{ position:absolute; left:80px; right:80px; bottom:22px; display:flex; justify-content:space-between;
+  font-size:var(--fs-note); color:var(--ink-3); }
+
+/* 表紙 */
+.cover{ display:flex; flex-direction:column; justify-content:center; background:linear-gradient(180deg, var(--paper) 0 86%, var(--accent-pale) 86%); }
+.cover .kicker{ font-size:var(--fs-small); color:var(--accent-dark); letter-spacing:.08em; margin-bottom:18px; }
+.cover h1{ font-size:var(--fs-display); line-height:1.25; color:var(--navy); }
+.cover .rule{ width:120px; height:5px; background:var(--accent); margin:30px 0 26px; }
+.cover .sub{ font-size:var(--fs-h2); color:var(--ink-2); }
+.cover .by{ margin-top:44px; font-size:var(--fs-small); color:var(--ink-2); }
+
+/* セクション区切り（見出し形式） */
+.section{ display:flex; flex-direction:column; justify-content:center; background:var(--navy); color:#fff; }
+.section .no{ font-size:var(--fs-small); letter-spacing:.14em; color:#9CC9EA; margin-bottom:16px; }
+.section h1{ font-size:52px; line-height:1.35; }
+.section .lead{ margin-top:32px; max-width:880px; font-size:var(--fs-body); color:#D9E4EE; }
+
+/* 箇条書き */
+.bul{ list-style:none; padding:0; display:grid; gap:18px; }
+.bul > li{ position:relative; padding-left:30px; }
+.bul > li::before{ content:""; position:absolute; left:0; top:.55em; width:12px; height:12px; background:var(--accent); }
+
+/* 番号つき 3 項目（横並びカード） */
+.cards{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+.card{ background:var(--paper-2); border-radius:var(--radius); padding:26px 28px; border-top:5px solid var(--accent); }
+.card .n{ font-size:40px; font-weight:700; color:var(--accent); line-height:1; margin-bottom:12px; font-family:var(--ff-mono); }
+.card h2{ font-size:var(--fs-h2); color:var(--navy); margin-bottom:8px; }
+.card p{ font-size:var(--fs-small); color:var(--ink-2); line-height:1.6; }
+
+/* 巨大数字 */
+.stat{ font-size:120px; font-weight:700; line-height:1; color:var(--accent); font-family:var(--ff-mono); letter-spacing:-.02em; }
+.stat small{ font-size:36px; color:var(--ink-2); margin-left:8px; font-family:var(--ff); }
+
+/* コールアウト（結論） */
+.callout{ background:var(--accent-pale); border-left:8px solid var(--accent); border-radius:0 var(--radius) var(--radius) 0;
+  padding:20px 28px; font-size:var(--fs-h2); color:var(--navy); }
+.callout.dark{ background:var(--navy); color:#fff; border-left-color:#9CC9EA; }
+
+/* 2 カラム */
+.two{ display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; }
+
+/* コード例 */
+.code{ font-family:var(--ff-mono); font-size:17px; line-height:1.55; background:#0F1B2D; color:#E6EDF5;
+  border-radius:var(--radius); padding:20px 24px; white-space:pre; overflow:hidden; }
+.code .c{ color:#8FB3D6; }
+
+.note{ font-size:var(--fs-note); color:var(--ink-3); }
+
+/* 文中のコード */
+deck-stage code{ font-family:var(--ff-mono); font-size:.86em; background:var(--paper-2); padding:0 .3em; border-radius:4px; }

@@ -4,6 +4,7 @@
 
 見本：
 - 発表資料：[examples/index.html](examples/index.html)（<https://narupeko.github.io/html-slide-kit/>）
+- スタイル・形式ごとの書き分け（授業の型、発表の型、対面・オンライン・録画など）：[styles.md](styles.md)
 - 授業 1 回分：[examples/lesson.html](examples/lesson.html)（<https://narupeko.github.io/html-slide-kit/examples/lesson.html>。【】の中を書き換えて使う）
 
 ## できること
@@ -139,7 +140,7 @@ workers.dev の URL は誰でも開ける。参加者だけに見せたいとき
 ## ライセンス
 
 - コード（`kit/` の JavaScript と CSS）：[MIT License](LICENSE)
-- 文書と見本（`README.md`、`SKILL.md`、`examples/`）：[クリエイティブ・コモンズ 表示 4.0 国際（CC BY 4.0）](LICENSE-docs.md)
+- 文書と見本（`README.md`、`SKILL.md`、`styles.md`、`examples/`）：[クリエイティブ・コモンズ 表示 4.0 国際（CC BY 4.0）](LICENSE-docs.md)
 
 © 2026 しらとり なるひこ（Naruhiko Shiratori / narupeko）
 

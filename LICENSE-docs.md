@@ -1,6 +1,6 @@
 # 文書と見本のライセンス
 
-`README.md`、`SKILL.md`、`examples/` は、クリエイティブ・コモンズ 表示 4.0 国際 ライセンス（CC BY 4.0）で提供する。
+`README.md`、`SKILL.md`、`styles.md`、`examples/` は、クリエイティブ・コモンズ 表示 4.0 国際 ライセンス（CC BY 4.0）で提供する。
 
 © 2026 しらとり なるひこ（Naruhiko Shiratori）
 

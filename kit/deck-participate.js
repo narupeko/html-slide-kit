@@ -31,6 +31,10 @@
  *      <iframe class="live-frame" src="https://example.com/poll/q1/results"></iframe>
  *    埋め込んだページが parent.postMessage({nav: 1}) / ({nav: -1}) を送ると、スライドを送る・戻す
  *    （iframe をクリックするとキーが iframe に取られるため。送らないサービスでは、スライドの外をクリックしてから操作する）
+ *
+ * 5. 事前配布用の印刷
+ *    URL の末尾に ?handout を付けて開き、印刷 → PDF にすると、クイズの答えと解説を伏せる。
+ *    ほかに伏せたい要素には data-handout="hide" を付ける。?handout なしで印刷すると全部出る（発表後の配布用）
  */
 (() => {
   const deck = document.querySelector('deck-stage');
@@ -45,6 +49,7 @@
     .quiz-prompt b{ font-size:14px; letter-spacing:.1em; color:#fff; background:var(--accent, #0B72B9); padding:2px 10px; border-radius:999px; }
     .quiz-q{ font-size:28px; font-weight:700; color:var(--navy, #13294B); margin:0 0 18px; line-height:1.45; }
     .quiz-choices{ list-style:none; margin:0; padding:0; display:grid; gap:12px; }
+    .quiz-choices:has(> li:nth-child(4)){ grid-template-columns:1fr 1fr; }   /* 4 択以上は 2 列 */
     .quiz-choices > li{ position:relative; display:flex; align-items:center; gap:16px; background:#fff; border:2px solid var(--rule, #D5DBE2);
       border-radius:8px; padding:12px 18px; font-size:22px; transition:opacity 300ms ease, border-color 300ms ease, background 300ms ease; }
     .quiz-choices > li::before{ content:attr(data-letter); flex:none; width:40px; height:40px; border-radius:50%; display:grid; place-items:center;
@@ -76,11 +81,21 @@
     .join .j-label{ font-size:20px; font-weight:700; color:var(--navy, #13294B); }
     .join .j-url{ font-family:var(--ff-mono, ui-monospace, monospace); font-size:22px; color:var(--accent-dark, #075A93); word-break:keep-all; overflow-wrap:normal; max-width:440px; }
 
-    .live-frame{ width:100%; height:100%; border:0; border-radius:8px; background:#fff; }`;
+    .live-frame{ width:100%; height:100%; border:0; border-radius:8px; background:#fff; }
+
+    /* 事前配布用の印刷（URL に ?handout）：クイズの答えと解説、data-handout="hide" の要素を伏せる */
+    @media print{
+      .handout .quiz .quiz-choices > li{ opacity:1 !important; border-color:var(--rule, #D5DBE2) !important; background:#fff !important; }
+      .handout .quiz .quiz-choices > li::before{ color:var(--accent, #0B72B9) !important; background:none !important; }
+      .handout .quiz .quiz-choices > li.ok::after{ content:none !important; }
+      .handout .quiz-why, .handout [data-handout="hide"]{ visibility:hidden !important; }
+    }`;
   const style = document.createElement('style');
   style.id = 'deck-participate';
   style.textContent = css;
   document.head.appendChild(style);
+
+  if (new URLSearchParams(location.search).has('handout')) document.documentElement.classList.add('handout');
 
   const slideOf = (el) => el.closest('deck-stage > *');
 

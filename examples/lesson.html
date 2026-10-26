@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>【科目名】第【N】回　【今日のテーマ】</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap">
+<link rel="stylesheet" href="../kit/slide.css">
+<style>
+  deck-stage:not(:defined){ visibility:hidden; }
+  /* 今日の流れ（時間つき） */
+  .flow{ list-style:none; padding:0; margin:0; display:grid; gap:12px; }
+  .flow li{ display:grid; grid-template-columns:110px 1fr; align-items:baseline; gap:20px; padding:12px 20px; background:var(--paper-2); border-radius:var(--radius); }
+  .flow .min{ font-family:var(--ff-mono); font-size:var(--fs-small); color:var(--accent-dark); }
+  .flow .act{ font-size:var(--fs-small); color:var(--ink-2); margin-left:12px; }
+  /* ゴール */
+  .goals{ list-style:none; padding:0; margin:0; display:grid; gap:18px; }
+  .goals li{ display:flex; gap:18px; align-items:center; font-size:var(--fs-h2); }
+  .goals li::before{ content:"✓"; flex:none; width:44px; height:44px; border-radius:50%; display:grid; place-items:center;
+    background:var(--accent-pale); color:var(--accent); font-weight:700; }
+</style>
+</head>
+<body>
+<!--
+  授業 1 回分の見本。【】の中を書き換えて使う。構成：
+    導入（ゴール・前回の振り返りクイズ・今日の流れ）→ 本題 → 活動（ペアワーク）→ 確認クイズ → まとめ → 振り返り → 次回まで
+  学生が手を動かす・話す・答える場面を 15 分に 1 回は入れる。
+  事前配布：この URL に ?handout を付けて開き、印刷 → PDF（クイズの答えが伏せられる）。授業後の配布は ?handout なしで印刷。
+-->
+<deck-stage width="1280" height="720">
+
+  <!-- 表紙 -->
+  <section class="cover">
+    <div data-cascade="300">
+      <p class="kicker">【科目名】　第【N】回</p>
+      <h1>【今日のテーマを<br>1〜2 行で】</h1>
+      <div class="rule"></div>
+      <p class="sub">【副題：今日の問いを一言で】</p>
+    </div>
+    <p class="by" data-step="1">【担当教員名】　【日付】</p>
+  </section>
+
+  <!-- 今日のゴール：「〜できる」で書く -->
+  <section>
+    <div class="head"><span class="chip">GOAL</span><h1>今日のゴール</h1></div>
+    <ul class="goals" data-each="1">
+      <li>【〜を説明できる】</li>
+      <li>【〜を使って〜できる】</li>
+      <li>【〜と〜の違いを見分けられる】</li>
+    </ul>
+    <div class="foot"><span>【科目名】第【N】回</span><span>02</span></div>
+  </section>
+
+  <!-- 前回の振り返りクイズ：前回の要点を思い出してもらう -->
+  <section>
+    <div class="head"><span class="chip">REVIEW</span><h1>前回の振り返り</h1></div>
+    <div class="quiz" data-answer="1" data-prompt="前回の内容から。指で A〜C を出してください">
+      <p class="quiz-q">【前回の要点を問う 1 行の問い】</p>
+      <ol class="quiz-choices">
+        <li>【正解の選択肢】</li>
+        <li>【よくある誤解】</li>
+        <li>【もう 1 つの誤解】</li>
+      </ol>
+      <p class="quiz-why">【正解の理由を 1〜2 行で。誤解のほうを選んだ人が多ければ、ここで少し戻る】</p>
+    </div>
+    <div class="foot"><span>【科目名】第【N】回</span><span>03</span></div>
+  </section>
+
+  <!-- 今日の流れ：時間と、学生がすること -->
+  <section>
+    <div class="head"><span class="chip">PLAN</span><h1>今日の流れ</h1></div>
+    <ol class="flow">
+      <li><span class="min">0–10 分</span><span>導入<span class="act">振り返りクイズ</span></span></li>
+      <li><span class="min">10–35 分</span><span>【本題 1】<span class="act">話を聞く・メモ</span></span></li>
+      <li><span class="min">35–50 分</span><span>ペアワーク<span class="act">隣の人と話す</span></span></li>
+      <li><span class="min">50–75 分</span><span>【本題 2】<span class="act">確認クイズ</span></span></li>
+      <li><span class="min">75–90 分</span><span>まとめと振り返り<span class="act">スマホで書く</span></span></li>
+    </ol>
+    <div class="foot"><span>【科目名】第【N】回</span><span>04</span></div>
+  </section>
+
+  <!-- 本題 1：セクション区切り（見出し形式） -->
+  <section class="section">
+    <div data-cascade="350">
+      <p class="no">PART 1</p>
+      <h1>【本題 1 の<br>見出し】</h1>
+    </div>
+    <p class="lead" data-step="1">【このパートで考える問いを 1〜2 文で】</p>
+  </section>
+
+  <!-- 本題 1 の中身：1 枚に言いたいことは 1 つ。結論は最後の段 -->
+  <section>
+    <div class="head"><span class="chip">PART 1</span><h1>【このスライドの結論を短く】</h1></div>
+    <ul class="bul" data-each="1">
+      <li>【根拠・例 1】</li>
+      <li>【根拠・例 2】</li>
+    </ul>
+    <div class="callout" data-step="3" style="margin-top:40px">【結論を 1 文で】</div>
+    <p class="note" style="position:absolute; left:80px; bottom:56px">出典：【著者（年）『書名』出版社、ページ】</p>
+    <div class="foot"><span>【科目名】第【N】回</span><span>06</span></div>
+  </section>
+
+  <!-- ペアワーク：問いを 1 つ、時間を見せる -->
+  <section>
+    <div class="head"><span class="chip">PAIR WORK</span><h1>隣の人と 5 分</h1></div>
+    <div class="two" style="align-items:center">
+      <div>
+        <p style="font-size:var(--fs-h2); color:var(--navy); font-weight:700; line-height:1.5">【話し合う問い。正解のない問いにする】</p>
+        <ul class="bul" style="margin-top:24px; font-size:var(--fs-small)">
+          <li>1 人 2 分ずつ話す</li>
+          <li>最後の 1 分で、2 人の考えの違いを 1 つ書く</li>
+        </ul>
+      </div>
+      <div style="text-align:center"><button class="timer" data-seconds="300">ペアワーク</button></div>
+    </div>
+    <div class="foot"><span>【科目名】第【N】回</span><span>07</span></div>
+  </section>
+
+  <!-- 確認クイズ：本題の理解を確かめる -->
+  <section>
+    <div class="head"><span class="chip">CHECK</span><h1>確認クイズ</h1></div>
+    <div class="quiz" data-answer="2">
+      <p class="quiz-q">【今日の本題の理解を確かめる問い】</p>
+      <ol class="quiz-choices">
+        <li>【選択肢】</li>
+        <li>【正解の選択肢】</li>
+        <li>【選択肢】</li>
+        <li>【選択肢】</li>
+      </ol>
+      <p class="quiz-why">【解説】</p>
+    </div>
+    <div class="foot"><span>【科目名】第【N】回</span><span>08</span></div>
+  </section>
+
+  <!-- まとめ：ゴールと対応させる -->
+  <section>
+    <div class="head"><span class="chip">SUMMARY</span><h1>今日のまとめ</h1></div>
+    <div class="cards" data-each="1">
+      <div class="card"><div class="n">01</div><h2>【要点 1】</h2><p>【1 行の説明】</p></div>
+      <div class="card"><div class="n">02</div><h2>【要点 2】</h2><p>【1 行の説明】</p></div>
+      <div class="card"><div class="n">03</div><h2>【要点 3】</h2><p>【1 行の説明】</p></div>
+    </div>
+    <div class="foot"><span>【科目名】第【N】回</span><span>09</span></div>
+  </section>
+
+  <!-- 振り返り：スマホで書いてもらう（ミニッツペーパー） -->
+  <section>
+    <div class="head"><span class="chip">REFLECTION</span><h1>振り返りを書く</h1></div>
+    <div class="two" style="align-items:center">
+      <ol class="bul" style="font-size:var(--fs-h2)">
+        <li>今日いちばん大事だと思ったこと</li>
+        <li>まだよくわからないこと</li>
+      </ol>
+      <div class="join" data-url="">【振り返りフォームの URL を data-url に】</div>
+    </div>
+    <div class="foot"><span>【科目名】第【N】回</span><span>10</span></div>
+  </section>
+
+  <!-- 次回まで -->
+  <section>
+    <div class="head"><span class="chip">NEXT</span><h1>次回までに</h1></div>
+    <ul class="bul">
+      <li><strong>課題</strong>：【内容】（締め切り：【日時】、提出先：【場所】）</li>
+      <li><strong>予習</strong>：【読む範囲・見ておくもの】</li>
+      <li><strong>次回</strong>：【次回のテーマ】</li>
+    </ul>
+    <div class="foot"><span>【科目名】第【N】回</span><span>11</span></div>
+  </section>
+
+</deck-stage>
+<script src="../kit/deck-shell.js"></script>
+<script src="../kit/deck-participate.js"></script>
+<script src="../kit/deck-extras.js"></script>
+</body>
+</html>

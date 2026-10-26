@@ -2,7 +2,9 @@
 
 話す順に見せる、日本語の投影スライドを HTML 1 枚で作るための小さな道具一式。ブラウザで開けばそのまま発表でき、印刷すれば 1 枚 1 ページの PDF になる。Claude Code のスキル（[SKILL.md](SKILL.md)）としても使える。
 
-見本：[examples/index.html](examples/index.html)（GitHub Pages を有効にすると <https://narupeko.github.io/html-slide-kit/> で見られる）
+見本：
+- 発表資料：[examples/index.html](examples/index.html)（<https://narupeko.github.io/html-slide-kit/>）
+- 授業 1 回分：[examples/lesson.html](examples/lesson.html)（<https://narupeko.github.io/html-slide-kit/examples/lesson.html>。【】の中を書き換えて使う）
 
 ## できること
 
@@ -11,7 +13,7 @@
 - 見出しを 1 行ずつ順に出す、手書き風の下線と丸、数字の数え上げ
 - **聞き手が参加できる**：その場クイズ、話し合いタイマー、投票ページの QR コード、結果の埋め込み
 - レーザーポインター（L）、全画面（F）、左下の操作ヒント（H）
-- 印刷・PDF 保存では、最初から全部出た状態になる
+- 印刷・PDF 保存では、最初から全部出た状態になる。URL に `?handout` を付けて印刷すると、クイズの答えを伏せた事前配布用になる
 
 ## 使い方
 
